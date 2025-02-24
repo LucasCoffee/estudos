@@ -59,7 +59,6 @@ class CheckoutService{
         }
         this.metodoDePagamento = metodoDePagamento
     }
-
     processar(valor){
         try {
             this.metodoDePagamento.processarPagamentos(valor)
@@ -67,10 +66,8 @@ class CheckoutService{
         } catch (error) {
             throw new Error('Houve um erro no processamento do pagamento: ' + error)
         }
-        
     }
 }
-
 class PagamentoService{
 
         constructor(processadorDePagamento, registradorDeLogs){
@@ -83,7 +80,7 @@ class PagamentoService{
             const resultadoPagamento = this.processadorDePagamento.processar(valor)
             this.registradorDelogs.registrarLog(resultadoPagamento.metodo, resultadoPagamento.valor)
         } catch (error) {
-            
+            console.log('Erro ao processar pagamento: ' + error)
         }
     }
 }
