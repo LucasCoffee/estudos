@@ -7,9 +7,11 @@ const validarDadosDeCadastro = require('../middlewares/validacaoDeUsuario')
 
 routers.get('/', ControllerUsers.homePage);
 
-routers.post('/usuario', validarDadosDeCadastro,  ControllerUsers.cadastro)
+routers.post('/usuario', validarDadosDeCadastro, ControllerUsers.cadastro)
 
-routers.get('/usuario/:id',  ControllerUsers.getUsersById)
+routers.get('/usuario/:id', ControllerUsers.getUsersById);
+
+routers.get("/usuarioBy/:email", ControllerUsers.getUsersByEmail)
 
 
 module.exports = routers

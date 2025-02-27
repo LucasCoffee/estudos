@@ -1,5 +1,6 @@
 const serviceUsers = require("../Service/UsersService")
 
+
 class ControllerUsers{
     static async homePage(req, res){
          res.send('Seja bem vindo ao sistema de autenticação Node JS com construido com conceitos SOLID')
@@ -23,6 +24,16 @@ class ControllerUsers{
             res.json(usuario)
         } catch (error) {
             
+        }
+    }
+    static async getUsersByEmail(req, res){
+        try {
+            const {email} = req.params
+            const usuario = await serviceUsers.getUserEmail(email);
+            res.json(usuario)
+        } catch (error) {
+            res.sendStatus(500)
+            console.log(error)
         }
     }
 }
