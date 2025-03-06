@@ -11,7 +11,7 @@ class UserRepository extends InterfaceUserRepository{
     }
 
     async getUserByEmail(email) {
-        return await this.db("users").where({ email });
+        return await this.db("users").where({ email }).first();
     }
 
     async getUserByID(id) {
