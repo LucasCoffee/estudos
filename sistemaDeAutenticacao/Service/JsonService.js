@@ -3,11 +3,7 @@ const secret = process.env.secret
 
 class JsonService{
     login(email){
-        return jwt.sign(email, secret, (err, decoded) => {
-            if(err){
-                throw new Error('Você não esta logado')
-            }
-        })
+        return jwt.sign(email, secret)
     }
 
     verificaToken(token){

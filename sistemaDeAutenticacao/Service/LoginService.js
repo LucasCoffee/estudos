@@ -16,7 +16,8 @@ class LoginService{
             if(!(await this.hashService.comparePassword(senha, user.senha ))){
                 throw new Error('Email ou senha estão incorretos')
             }
-            return await this.jsonService.login(email)
+            const token = await this.jsonService.login(email)
+            return token
 
         } catch (error) {
             throw new Error(error)
